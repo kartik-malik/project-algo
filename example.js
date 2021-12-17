@@ -30,7 +30,6 @@ rl.question("enter no of process", (answer1) => {
       }
       console.log(graph);
       init = Number(input3);
-      sdighdfhjdf;
       console.log(init);
       // console.log(`The sum of above two numbers is ${result}`);
       for (let i = 0; i < n; i++) {
