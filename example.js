@@ -1,4 +1,5 @@
 const readline = require("readline");
+const { resolver } = require("./resolve");
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -12,8 +13,8 @@ let n,
   msg_list = [];
 function Message(init, i, j) {
   this.init = init;
-  this.i = i;
-  this.j = j;
+  this.from = i;
+  this.to = j;
 }
 rl.question("enter no of process", (answer1) => {
   rl.question("enter wgf graph", (answer2) => {
@@ -30,7 +31,6 @@ rl.question("enter no of process", (answer1) => {
       }
       console.log(graph);
       init = Number(input3);
-      sdighdfhjdf;
       console.log(init);
       // console.log(`The sum of above two numbers is ${result}`);
       for (let i = 0; i < n; i++) {
@@ -38,11 +38,23 @@ rl.question("enter no of process", (answer1) => {
           if (graph[i][j] == 1) {
             const obj = new Message(init, i, j);
             msg_list.push(obj);
+            count += 1;
             console.log(msg_list);
           }
         }
       }
-      rl.close();
+      for (let j = 0; j < count; j++) {
+        if (init == msg_list[j].to) {
+          isDeadlock = true;
+          resolver(init, n);
+        }
+      }
+      if (isDeadlock) {
+        console.log("The Deadlock has been detected");
+      } else {
+        console.log("No deadlock has been detected");
+      }
+      //   rl.close();
     });
   });
 });
