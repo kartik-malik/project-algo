@@ -13,7 +13,7 @@ const blockkarde = () => {
   });
 };
 const resolver = async (init, n) => {
-  for (let i = 0; i <= n; i++) {
+  for (let i = 0; i < n; i++) {
     if (init == i) {
       console.log(`Deadlock Detected at Process ${i}`);
       console.log(`Putting On Hold Process ${i}`);
@@ -22,7 +22,7 @@ const resolver = async (init, n) => {
         console.log(`Executed Process ${i}`);
       }, 10000);
     } else {
-        console.log(`Executing Process ${i}`);
+      console.log(`Executing Process ${i}`);
       const data = await promiseFunction(i);
       //   setTimeout(() => {
       console.log(`Excuted Process ${i}`);

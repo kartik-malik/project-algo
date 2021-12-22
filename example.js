@@ -1,6 +1,5 @@
 const readline = require("readline");
 const { resolver } = require("./resolve");
-
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
@@ -21,6 +20,8 @@ rl.question("enter no of process", (answer1) => {
     rl.question("enter the process initiating probe", (input3) => {
       // var result = +answer1 + +answer2;
       n = Number(answer1);
+      let t1 = new Date().getTime();
+
       arr = answer2.split(" ");
       arr = arr.map((item) => {
         return Number(item);
@@ -43,14 +44,17 @@ rl.question("enter no of process", (answer1) => {
           }
         }
       }
+      let isDeadlock = false;
       for (let j = 0; j < count; j++) {
         if (init == msg_list[j].to) {
           isDeadlock = true;
+          console.log("The Deadlock has been detected");
           resolver(init, n);
+          let t2 = new Date().getTime();
+          console.log((t2 - t1) / 1000);
         }
       }
       if (isDeadlock) {
-        console.log("The Deadlock has been detected");
       } else {
         console.log("No deadlock has been detected");
       }
