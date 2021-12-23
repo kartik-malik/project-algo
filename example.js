@@ -16,7 +16,7 @@ function Message(init, i, j) {
   this.to = j;
 }
 rl.question("enter no of process", (answer1) => {
-  rl.question("enter wgf graph", (answer2) => {
+  rl.question("enter wait for  graph", (answer2) => {
     rl.question("enter the process initiating probe", (input3) => {
       // var result = +answer1 + +answer2;
       n = Number(answer1);

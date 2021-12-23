@@ -13,7 +13,7 @@ const blockkarde = () => {
   });
 };
 const resolver = async (init, n) => {
-  for (let i = 0; i < n; i++) {
+  for (let i = n; i >= 0; i--) {
     if (init == i) {
       console.log(`Deadlock Detected at Process ${i}`);
       console.log(`Putting On Hold Process ${i}`);
