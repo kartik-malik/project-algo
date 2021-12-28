@@ -5,22 +5,22 @@ const promiseFunction = (i) => {
     // }, 2000);
   });
 };
-const blockkarde = () => {
+const simulateProcess = () => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve();
-    }, 5000);
+    }, 1000);
   });
 };
 const resolver = async (init, n) => {
-  for (let i = n; i >= 0; i--) {
+  console.log(`Deadlock Detected at Process ${init}`);
+  console.log(`Putting On Hold Process ${init}`);
+  for (let i = n; i >= 1; i--) {
     if (init == i) {
-      console.log(`Deadlock Detected at Process ${i}`);
-      console.log(`Putting On Hold Process ${i}`);
       setTimeout(() => {
         console.log(`Executing the Process ${i}`);
         console.log(`Executed Process ${i}`);
-      }, 10000);
+      }, 5000);
     } else {
       console.log(`Executing Process ${i}`);
       const data = await promiseFunction(i);
@@ -28,7 +28,7 @@ const resolver = async (init, n) => {
       console.log(`Excuted Process ${i}`);
       //   }, 1000);
     }
-    const kardia = await blockkarde();
+    const kardia = await simulateProcess();
   }
 };
 // resolver(1, 3);
